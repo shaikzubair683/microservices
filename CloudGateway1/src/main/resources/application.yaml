@@ -1,0 +1,34 @@
+
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+  config:
+    import: configserver:http://localhost:9296
+  cloud:
+    gateway:
+      routes:
+        - id: ORDER-SERVICE
+          uri: http://localhost:8082
+          predicates:
+            - Path=/order/**
+
+        - id: PAYMENT-SERVICE
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/product/**
+
+okta:
+  oauth2:
+    issuer: https://dev-24977028.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oaakxzdz8ahuqE445d7
+    client-secret: jtTKKClu_ur0nmdcnugxF9LbzzX2z2oAPayjmJCxV8Z7AQ1U5tlY5fDm6ZVRKeGJ
+    scopes: openid, profile, email, offline_access

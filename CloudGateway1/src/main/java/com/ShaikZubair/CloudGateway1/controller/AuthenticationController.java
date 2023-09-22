@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/authenticate")
 public class AuthenticationController {
+
+    @GetMapping("login")
     public ResponseEntity<AuthenticateResponse1> login(
             @AuthenticationPrincipal OidcUser oidcUser,
             Model model,

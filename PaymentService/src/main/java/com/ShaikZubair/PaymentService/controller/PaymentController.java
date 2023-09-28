@@ -6,10 +6,7 @@ import com.ShaikZubair.PaymentService.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/payment")
@@ -19,10 +16,14 @@ public class PaymentController {
     private PaymentService paymentService;
 
 
-    @PostMapping
+   @PostMapping
     public ResponseEntity<Long> doPayment(@RequestBody PaymentRequest request){
         return new ResponseEntity<>(paymentService.doPayment(request) ,
                 HttpStatus.OK);
+    }
 
+    @GetMapping("/testing")
+    public String testing(){
+        return "got it";
     }
 }

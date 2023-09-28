@@ -21,7 +21,7 @@ public class TransactionDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private long orderId;
-    private String paymentMode;
+    private PaymentMethod paymentMethod;
     private Instant paymentDate;
     private String paymentStatus;
     private long amount;

@@ -19,11 +19,10 @@ public class PaymentServiceImpl implements PaymentService {
     public long doPayment(PaymentRequest request) {
         log.info("payment request service layer called");
 
-
         TransactionDetails details = TransactionDetails.builder()
                 .amount(request.getAmount())
                 .paymentDate(Instant.now())
-                .paymentMode(request.getPaymentMode().name())
+                .paymentMethod(request.getPaymentMethod())
                 .paymentStatus("SUCCESS")
                 .orderId(request.getOrderId())
                 .build();

@@ -1,4 +1,4 @@
-package com.ShaikZubair.PaymentService.model;
+package com.ShaikZubair.OrderService.model;
 
 public enum PaymentMethod {
     CASH,

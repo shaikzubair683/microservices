@@ -11,9 +11,9 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "ORDER_DETAILS")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Builder
 public class Order {
 
@@ -30,4 +30,6 @@ public class Order {
     private String orderStatus;
     @Column(name = "TOTAL_AMOUNT")
     private long amount;
+
+
 }

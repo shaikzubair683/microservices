@@ -37,7 +37,7 @@ public class OrderResponse {
     @Builder
     public static class PaymentDetails{
         private long paymentId;
-        private PaymentMode paymentMode;
+        private PaymentMethod paymentMode;
         private String paymentStatus;
         private Instant paymentDate;
     }

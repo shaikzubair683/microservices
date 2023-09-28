@@ -1,6 +1,6 @@
 package com.ShaikZubair.OrderService.external.response;
 
-import com.ShaikZubair.OrderService.model.PaymentMode;
+import com.ShaikZubair.OrderService.model.PaymentMethod;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.time.Instant;
 public class PaymentResponse {
     private long paymentId;
     private String status;
-    private PaymentMode paymentMode;
+    private PaymentMethod paymentMode;
     private long amount;
     private Instant paymentDate;
     private long orderId;

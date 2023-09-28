@@ -1,7 +1,9 @@
 package com.ShaikZubair.OrderService.external.client;
 
+import com.ShaikZubair.OrderService.external.response.ProductResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,4 +15,7 @@ public interface ProductService {
             @PathVariable("Id") long productId,
             @RequestParam long quantity
     );
+
+    @GetMapping("/{Id}")
+    ResponseEntity<ProductResponse> getProductById(@PathVariable("Id") long productId);
 }

@@ -1,5 +1,6 @@
 package com.ShaikZubair.OrderService.controller;
 
+import com.ShaikZubair.OrderService.model.GetOrderDetailsResponse;
 import com.ShaikZubair.OrderService.model.OrderRequest;
 import com.ShaikZubair.OrderService.service.OrderService;
 import lombok.extern.log4j.Log4j2;
@@ -22,6 +23,11 @@ public class OrderController {
         long orderId = orderService.placeOrder(orderRequest);
         log.info("Order Id {}", orderId);
         return new ResponseEntity<>(orderId, HttpStatus.OK);
+    }
+
+    @GetMapping("/orderDetails/{orderId}")
+    public ResponseEntity<GetOrderDetailsResponse> getOrderDetails(@PathVariable(name = "orderId") long orderId){
+        return orderService.getOrderDetails(orderId);
     }
 
     @GetMapping("/testing")

@@ -19,13 +19,4 @@ public class OrderServiceApplication {
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 
-
-
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		RestTemplate restTemplate
-				= new RestTemplate();
-		return restTemplate;
-	}
 }

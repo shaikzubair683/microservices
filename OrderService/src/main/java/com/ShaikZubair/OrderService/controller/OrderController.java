@@ -16,22 +16,18 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+
     @PostMapping("/placeOrder")
     public ResponseEntity<Long> PlaceOrder(@RequestBody OrderRequest orderRequest){
         log.info("PlaceOrder api called");
-
         long orderId = orderService.placeOrder(orderRequest);
         log.info("Order Id {}", orderId);
         return new ResponseEntity<>(orderId, HttpStatus.OK);
     }
 
+
     @GetMapping("/orderDetails/{orderId}")
     public ResponseEntity<GetOrderDetailsResponse> getOrderDetails(@PathVariable(name = "orderId") long orderId){
         return orderService.getOrderDetails(orderId);
-    }
-
-    @GetMapping("/testing")
-    public String testing(){
-        return "got it";
     }
 }

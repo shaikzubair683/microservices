@@ -1,29 +1,20 @@
 package com.ShaikZubair.OrderService.service;
-
-
 import com.ShaikZubair.OrderService.entity.Order;
 import com.ShaikZubair.OrderService.exception.CustomException;
 import com.ShaikZubair.OrderService.external.client.PaymentService;
 import com.ShaikZubair.OrderService.external.client.ProductService;
 import com.ShaikZubair.OrderService.external.request.PaymentRequest;
-import com.ShaikZubair.OrderService.external.response.PaymentResponse;
 import com.ShaikZubair.OrderService.external.response.ProductResponse;
 import com.ShaikZubair.OrderService.model.GetOrderDetailsResponse;
 import com.ShaikZubair.OrderService.model.OrderRequest;
-import com.ShaikZubair.OrderService.model.OrderResponse;
 import com.ShaikZubair.OrderService.repository.OrderRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.Optional;
 
 @Service
 @Log4j2
@@ -35,12 +26,12 @@ public class OrderServiceImpl implements OrderService {
     private ProductService productService;
     @Autowired
     private PaymentService paymentService;
-    @Autowired
-    private RestTemplate restTemplate;
+
 
     @Override
     public long placeOrder(OrderRequest orderRequest) {
         log.info("placing order request: {}", orderRequest);
+
         productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
         Order order = Order.builder()
                 .productId(orderRequest.getProductId())

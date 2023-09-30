@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService{
                 .price(productRequest.getPrice())
                 .build();
 
-        productRepository.save(product);
+        product= productRepository.save(product);
         log.info("product created");
         return product.getProductId();
     }
@@ -42,8 +42,6 @@ public class ProductServiceImpl implements ProductService{
         ProductResponse productResponse= new ProductResponse();
         BeanUtils.copyProperties(product,productResponse);
         return productResponse;
-
-
     }
 
     @Override

@@ -63,10 +63,10 @@ public class OrderServiceImpl implements OrderService {
         }
 
         order.setOrderStatus(orderStatus);
-        orderRepository.save(order);
+        Order updatedOrder = orderRepository.save(order);
 
         log.info("Order Places successfully with Order Id: {}", order.getId());
-        return order.getId();
+        return updatedOrder.getId();
 
     }
 

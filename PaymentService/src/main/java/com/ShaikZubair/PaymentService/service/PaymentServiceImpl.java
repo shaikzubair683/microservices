@@ -27,7 +27,7 @@ public class PaymentServiceImpl implements PaymentService {
                 .orderId(request.getOrderId())
                 .build();
 
-        repository.save(details);
-        return details.getId();
+        TransactionDetails detailsUpdated = repository.save(details);
+        return detailsUpdated.getId();
     }
 }

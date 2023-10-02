@@ -11,3 +11,5 @@ I've developed an e-commerce service using the Java and Spring Boot framework, i
 4. Service Registry: implemented Service registry using Netflix Eureka server.
 5. Unit testing: Wrote unit testing for all working services for all scenarios.
 6. Exception handling with custom exceptions and ControllerAdvice.
+7. Implememted Design patterns
+

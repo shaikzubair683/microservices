@@ -10,3 +10,4 @@ Features:
 3. Gateway: Implemented a gateway service that takes all the requests and redirects them to respective services.
 4. Service Registry: implemented Service registry using Netflix Eureka server.
 5. Unit testing: Wrote unit testing for all working services for all scenarios.
+6. Exception handling with custom exceptions and ControllerAdvice.

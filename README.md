@@ -1,5 +1,5 @@
 # E-commerce service using microservices
-I've developed an e-commerce service server using the Java and Spring Boot framework, implementing a microservices architecture.
+I've developed an e-commerce service using the Java and Spring Boot framework, implementing a microservices architecture.
 
 ## Architecture for microservices
 ![alt text](./Blankboard.jpeg)

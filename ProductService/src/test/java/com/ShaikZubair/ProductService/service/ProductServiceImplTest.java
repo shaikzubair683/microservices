@@ -45,10 +45,8 @@ public class ProductServiceImplTest {
         Product product = new Product(1,"Iphone", 1200, 12);
         //mock
         when(productRepository.findById(anyLong())).thenReturn(Optional.of(product));
-
         //actual
         ProductResponse productResponse = productService.getProductById(1L);
-
         //assertions
         Assertions.assertEquals("Iphone", productResponse.getProductName());
         Assertions.assertEquals(1, productResponse.getProductId());

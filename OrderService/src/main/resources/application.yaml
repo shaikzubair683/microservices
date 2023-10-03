@@ -7,7 +7,6 @@ spring:
     username: root
     password: Gaffoor2424
     driverClassName: com.mysql.cj.jdbc.Driver
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
@@ -16,5 +15,3 @@ spring:
     name: ORDER-SERVICE
   config:
     import: configserver:http://${CONFIG_SERVER_URL:localhost}:9296
-
-

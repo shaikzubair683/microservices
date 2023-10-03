@@ -14,9 +14,7 @@ import java.util.Arrays;
 @SpringBootApplication
 @EnableFeignClients
 public class OrderServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
-
 }

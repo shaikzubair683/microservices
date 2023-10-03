@@ -1,4 +1,4 @@
-package com.ShaikZubair.OrderService.external.response;
+package com.ShaikZubair.OrderService.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

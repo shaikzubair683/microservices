@@ -9,14 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @FeignClient(name = "PAYMENT-SERVICE/payment")
 public interface PaymentService {
-
     @PostMapping
     public ResponseEntity<Long> doPayment(@RequestBody PaymentRequest paymentRequest);
-
-    default ResponseEntity<Long> fallback(Exception e) {
-        throw new CustomException("Payment Service is not available",
-                "UNAVAILABLE",
-                500);
-    }
 }
 

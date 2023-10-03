@@ -16,7 +16,6 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-
     @PostMapping("/placeOrder")
     public ResponseEntity<Long> PlaceOrder(@RequestBody OrderRequest orderRequest){
         log.info("PlaceOrder api called");

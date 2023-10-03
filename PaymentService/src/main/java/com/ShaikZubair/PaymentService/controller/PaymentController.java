@@ -22,8 +22,4 @@ public class PaymentController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/testing")
-    public String testing(){
-        return "got it";
-    }
 }

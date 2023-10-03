@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import java.time.Instant;
 
 @Service
@@ -32,7 +31,13 @@ public class OrderServiceImpl implements OrderService {
     public long placeOrder(OrderRequest orderRequest) {
         log.info("placing order request: {}", orderRequest);
 
-        productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
+        try{
+            productService.reduceQuantity(orderRequest.getProductId(), orderRequest.getQuantity());
+        }
+        catch (Exception e){
+            throw new CustomException("ran out of stock", "NO_STOCK", 404);
+        }
+
         Order order = Order.builder()
                 .productId(orderRequest.getProductId())
                 .quantity(orderRequest.getQuantity())
@@ -63,10 +68,10 @@ public class OrderServiceImpl implements OrderService {
         }
 
         order.setOrderStatus(orderStatus);
-        Order updatedOrder = orderRepository.save(order);
+        order = orderRepository.save(order);
 
         log.info("Order Places successfully with Order Id: {}", order.getId());
-        return updatedOrder.getId();
+        return order.getId();
 
     }
 

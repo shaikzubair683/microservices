@@ -1,6 +1,5 @@
 package com.ShaikZubair.OrderService.exception;
 
-import com.ShaikZubair.OrderService.external.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -10,7 +9,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
-
         @ExceptionHandler(CustomException.class)
         public ResponseEntity<ErrorResponse> handleCustomException(CustomException exception) {
             return new ResponseEntity<>(new ErrorResponse().builder()

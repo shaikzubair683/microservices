@@ -15,7 +15,6 @@ public interface ProductService {
             @PathVariable("Id") long productId,
             @RequestParam long quantity
     );
-
     @GetMapping("/{Id}")
     ResponseEntity<ProductResponse> getProductById(@PathVariable("Id") long productId);
 }

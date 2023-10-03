@@ -16,7 +16,6 @@ import java.time.Instant;
 @Data
 @Builder
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -30,6 +29,4 @@ public class Order {
     private String orderStatus;
     @Column(name = "TOTAL_AMOUNT")
     private long amount;
-
-
 }
